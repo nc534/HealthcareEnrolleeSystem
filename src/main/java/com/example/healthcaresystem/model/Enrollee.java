@@ -12,14 +12,16 @@ public class Enrollee {
     @Id
     private String id;
     private String name;
+    private String phone;
     @Field("activation_status")
     private boolean activationStatus;
     @Field("date_of_birth")
     private String dateOfBirth;
     private List<Dependent> dependent;
 
-    public Enrollee(String name, boolean activationStatus, String dateOfBirth, List<Dependent> dependent) {
+    public Enrollee(String name, String phone, boolean activationStatus, String dateOfBirth, List<Dependent> dependent) {
         this.name = name;
+        this.phone = phone;
         this.activationStatus = activationStatus;
         this.dateOfBirth = dateOfBirth;
         this.dependent = dependent;
@@ -27,6 +29,10 @@ public class Enrollee {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -37,7 +43,15 @@ public class Enrollee {
         this.name = name;
     }
 
-    public boolean isActivationStatus() {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public boolean getActivationStatus() {
         return activationStatus;
     }
 

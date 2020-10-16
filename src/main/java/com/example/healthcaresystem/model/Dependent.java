@@ -1,13 +1,16 @@
 package com.example.healthcaresystem.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public class Dependent {
 
     private String id;
     private String name;
+    @Field("date_of_birth")
     private String dateOfBirth;
 
-    public Dependent(String id, String name, String dateOfBirth) {
-        this.id = id;
+    public Dependent(String name, String dateOfBirth) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
     }
