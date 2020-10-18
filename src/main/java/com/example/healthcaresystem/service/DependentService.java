@@ -1,6 +1,5 @@
 package com.example.healthcaresystem.service;
 
-import com.example.healthcaresystem.dao.DependentRepository;
 import com.example.healthcaresystem.dao.EnrolleeRepository;
 import com.example.healthcaresystem.model.Dependent;
 import com.example.healthcaresystem.model.Enrollee;
@@ -24,9 +23,6 @@ public class DependentService {
 
     @Autowired
     private EnrolleeRepository enrolleeRepository;
-
-    @Autowired
-    private DependentRepository dependentRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;

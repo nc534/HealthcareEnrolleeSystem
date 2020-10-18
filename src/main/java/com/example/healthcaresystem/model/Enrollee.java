@@ -1,5 +1,6 @@
 package com.example.healthcaresystem.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -10,13 +11,19 @@ import java.util.List;
 public class Enrollee {
 
     @Id
+    @ApiModelProperty(notes = "The auto-generated unique ObjectId of the enrollee", required = true, example = "5f87640ea7923d74cc279026")
     private String id;
+    @ApiModelProperty(notes = "The full name of the enrollee", required = true, example = "John Smith")
     private String name;
+    @ApiModelProperty(notes = "The phone number of the enrollee (###-###-####)", example = "223-456-7890")
     private String phone;
     @Field("activation_status")
+    @ApiModelProperty(notes = "The activation status of the enrollee", required = true)
     private boolean activationStatus;
     @Field("date_of_birth")
+    @ApiModelProperty(notes = "The birthdate of the enrollee (yyyy-mm-dd)", required = true, example = "1992-11-30")
     private String dateOfBirth;
+    @ApiModelProperty(notes = "The dependents of the enrollee")
     private List<Dependent> dependent;
 
     public Enrollee(String name, String phone, boolean activationStatus, String dateOfBirth, List<Dependent> dependent) {

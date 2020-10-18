@@ -1,9 +1,8 @@
 package com.example.healthcaresystem.controller;
 
-import com.example.healthcaresystem.model.Dependent;
 import com.example.healthcaresystem.model.Enrollee;
-import com.example.healthcaresystem.service.DependentService;
 import com.example.healthcaresystem.service.EnrolleeService;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,32 +16,38 @@ public class EnrolleeController {
     EnrolleeService enrolleeService;
 
     //get all enrollees
-    @GetMapping("/enrollees")
+    @GetMapping(value = "/enrollee", produces = "application/json")
     public List<Enrollee> getAllEnrollees() {
         return enrolleeService.getAllEnrollees();
     }
 
     //get an enrollee
-    @GetMapping("/enrollee/{enrolleeId}")
-    public Optional<Enrollee> getEnrolleeById(@PathVariable String enrolleeId) {
+    @GetMapping(value = "/enrollee/{enrolleeId}", produces = "application/json")
+    public Optional<Enrollee> getEnrolleeById(@ApiParam(value = "Get the specific  enrollee using the enrollee's id", required = true)
+                                                @PathVariable String enrolleeId) {
         return enrolleeService.getEnrolleeById(enrolleeId);
     }
 
     //add a new enrollee
-    @PostMapping("/enrollees")
-    public Enrollee createEnrollee(@RequestBody Enrollee newEnrollee) {
+    @PostMapping(value = "/enrollee", produces = "application/json")
+    public Enrollee createEnrollee(@ApiParam(value = "All required fields and any optional fields of the new enrollee in JSON format", required = true)
+                                       @RequestBody Enrollee newEnrollee) {
         return enrolleeService.createEnrollee(newEnrollee);
     }
 
     //modify an enrollee
-    @PutMapping("/enrollee/{enrolleeId}")
-    public String updateEnrollee(@RequestBody Enrollee updatedEnrollee, @PathVariable String enrolleeId) {
+    @PutMapping(value = "/enrollee/{enrolleeId}", produces = "text/plain")
+    public String updateEnrollee(@ApiParam(value = "All fields of the existing enrollee with the changed value(s) in JSON format", required = true)
+                                    @RequestBody Enrollee updatedEnrollee,
+                                 @ApiParam(value = "Modify the specific enrollee using the enrollee's id", required = true)
+                                    @PathVariable String enrolleeId) {
         return enrolleeService.updateEnrollee(updatedEnrollee, enrolleeId);
     }
 
     //remove an enrollee
-    @DeleteMapping("/enrollee/{enrolleeId}")
-    public String deleteEnrollee(@PathVariable String enrolleeId) {
+    @DeleteMapping(value = "/enrollee/{enrolleeId}", produces = "text/plain")
+    public String deleteEnrollee(@ApiParam(value = "Delete the specific enrollee using the enrollee's id", required = true)
+                                    @PathVariable String enrolleeId) {
         return enrolleeService.deleteEnrollee(enrolleeId);
     }
 
