@@ -13,7 +13,7 @@ import java.util.Collections;
 @Configuration
 public class SwaggerConfig {
     @Bean
-    public Docket swaggerConfig() {
+    public Docket config() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .paths(PathSelectors.ant("/enrollee/**"))

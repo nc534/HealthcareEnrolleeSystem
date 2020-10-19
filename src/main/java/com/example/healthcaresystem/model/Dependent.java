@@ -13,6 +13,9 @@ public class Dependent {
     @ApiModelProperty(notes = "The birthdate of the dependent (yyyy-mm-dd)", required = true, example = "2015-02-25")
     private String dateOfBirth;
 
+    public Dependent() {
+    }
+
     public Dependent(String name, String dateOfBirth) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;

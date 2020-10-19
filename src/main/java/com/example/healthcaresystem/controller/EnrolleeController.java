@@ -36,7 +36,7 @@ public class EnrolleeController {
     }
 
     //modify an enrollee
-    @PutMapping(value = "/enrollee/{enrolleeId}", produces = "text/plain")
+    @PutMapping(value = "/enrollee/{enrolleeId}",  consumes = "application/json", produces = "text/plain")
     public String updateEnrollee(@ApiParam(value = "All fields of the existing enrollee with the changed value(s) in JSON format", required = true)
                                     @RequestBody Enrollee updatedEnrollee,
                                  @ApiParam(value = "Modify the specific enrollee using the enrollee's id", required = true)

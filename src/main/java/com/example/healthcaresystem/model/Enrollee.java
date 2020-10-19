@@ -26,6 +26,9 @@ public class Enrollee {
     @ApiModelProperty(notes = "The dependents of the enrollee")
     private List<Dependent> dependent;
 
+    public Enrollee() {
+    }
+
     public Enrollee(String name, String phone, boolean activationStatus, String dateOfBirth, List<Dependent> dependent) {
         this.name = name;
         this.phone = phone;
